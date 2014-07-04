@@ -19,15 +19,17 @@ class AvatarUtility {
      * @return void
      */
     public static function getSkin() {
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, 'http://s3.amazonaws.com/MinecraftSkins/' . static::$avatarName . '.png');
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
-        $output = curl_exec($ch);
-        $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+//        $ch = curl_init();
+//        curl_setopt($ch, CURLOPT_URL, 'http://s3.amazonaws.com/MinecraftSkins/' . static::$avatarName . '.png');
+//        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+//        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+//        $output = curl_exec($ch);
+//        $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
-        curl_close($ch);
-        if($status!='200') {
+        $output = file_get_contents('http://s3.amazonaws.com/MinecraftSkins/' . static::$avatarName . '.png');
+
+//        curl_close($ch);
+        if(!$output) {
             echo "Using default!\n";
             // Default Avatar: http://www.minecraft.net/skin/char.png
             $output = 'iVBORw0KGgoAAAANSUhEUgAAAEAAAAAgCAMAAACVQ462AAAABGdBTUEAALGPC/xhBQAAAwBQTFRFAAAAHxALIxcJJBgI';
