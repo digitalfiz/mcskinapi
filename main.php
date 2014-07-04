@@ -16,8 +16,7 @@ function getAvatar($avatar, $size) {
     return $data;
 }
 
-header('Content-Type: text/plain');
-
+header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + 3600));
 
 $split = explode("/", substr($_SERVER['REQUEST_URI'], 1));
 
