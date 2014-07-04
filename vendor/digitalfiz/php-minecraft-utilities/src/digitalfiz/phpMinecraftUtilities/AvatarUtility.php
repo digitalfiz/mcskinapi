@@ -14,21 +14,34 @@ class AvatarUtility {
     public static $avatarName = "";
     public static $skinData = "";
 
+    public static function findAvatarTextures($object) {
+        foreach($object->properties as $o) {
+            if($o->name == 'textures') {
+                return json_decode(base64_decode($o->value));
+            }
+        }
+        return false;
+    }
+
     /**
      * This gets an avatars skin
      * @return void
      */
     public static function getSkin() {
-//        $ch = curl_init();
-//        curl_setopt($ch, CURLOPT_URL, 'http://s3.amazonaws.com/MinecraftSkins/' . static::$avatarName . '.png');
-//        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-//        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
-//        $output = curl_exec($ch);
-//        $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
-        $output = @file_get_contents('https://s3.amazonaws.com/MinecraftSkins/' . static::$avatarName . '.png');
+        $output = '';
 
-//        curl_close($ch);
+        $profile = file_get_contents('https://sessionserver.mojang.com/session/minecraft/profile/' . static::$avatarName);
+        if(strlen($profile) > 0) {
+            $json = json_decode($profile);
+
+            $textures = static::findAvatarTextures($json);
+            if(strlen($textures->textures->SKIN->url) > 0) {
+                $output = file_get_contents($textures->textures->SKIN->url);
+            }
+        }
+        
+
         if(strlen($output) == 0) {
             //echo "Using default!\n";
             // Default Avatar: http://www.minecraft.net/skin/char.png
