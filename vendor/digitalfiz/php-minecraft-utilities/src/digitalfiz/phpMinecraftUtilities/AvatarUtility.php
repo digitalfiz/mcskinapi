@@ -26,11 +26,11 @@ class AvatarUtility {
 //        $output = curl_exec($ch);
 //        $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
-        $output = file_get_contents('http://s3.amazonaws.com/MinecraftSkins/' . static::$avatarName . '.png');
+        $output = @file_get_contents('https://s3.amazonaws.com/MinecraftSkins/' . static::$avatarName . '.png');
 
 //        curl_close($ch);
-        if(!$output) {
-            echo "Using default!\n";
+        if(strlen($output) == 0) {
+            //echo "Using default!\n";
             // Default Avatar: http://www.minecraft.net/skin/char.png
             $output = 'iVBORw0KGgoAAAANSUhEUgAAAEAAAAAgCAMAAACVQ462AAAABGdBTUEAALGPC/xhBQAAAwBQTFRFAAAAHxALIxcJJBgI';
             $output .= 'JBgKJhgLJhoKJxsLJhoMKBsKKBsLKBoNKBwLKRwMKh0NKx4NKx4OLR0OLB4OLx8PLB4RLyANLSAQLyIRMiMQMyQRNCU';
