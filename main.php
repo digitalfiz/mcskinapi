@@ -5,7 +5,7 @@ include "vendor/autoload.php";
 
 
 function getAvatar($avatar, $size) {
-    $key = $avatar.'-'.$size;
+    $key = $avatar.'--'.$size;
     $memcache = new Memcache;
     $data = $memcache->get($key); // Why does this return 1?
     if ($data === false) {
