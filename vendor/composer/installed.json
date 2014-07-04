@@ -1,0 +1,49 @@
+[
+    {
+        "name": "digitalfiz/php-minecraft-utilities",
+        "version": "v2.0.0",
+        "version_normalized": "2.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/digitalfiz/phpMinecraftUtilities.git",
+            "reference": "31c14b6ac62a46faa911075bd2803cd1cae3fd34"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/digitalfiz/phpMinecraftUtilities/zipball/31c14b6ac62a46faa911075bd2803cd1cae3fd34",
+            "reference": "31c14b6ac62a46faa911075bd2803cd1cae3fd34",
+            "shasum": ""
+        },
+        "require": {
+            "ext-gd": "*",
+            "lib-curl": "*",
+            "php": ">=5.3.0"
+        },
+        "time": "2014-03-18 20:09:26",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "digitalfiz\\phpMinecraftUtilities": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "Marc Seiler",
+                "email": "mseiler@gmail.com",
+                "homepage": "http://marcseiler.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "The package handles various tasks you may need to do with minecraft via your PHP script.",
+        "homepage": "http://digitalfiz.github.io/phpMinecraftUtilities/",
+        "keywords": [
+            "minecraft",
+            "php"
+        ]
+    }
+]

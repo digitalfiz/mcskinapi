@@ -1,0 +1,29 @@
+{
+    "name": "digitalfiz/php-minecraft-utilities",
+    "description": "The package handles various tasks you may need to do with minecraft via your PHP script.",
+    "type":"library",
+    "keywords":["minecraft", "php"],
+    "homepage":"http://digitalfiz.github.io/phpMinecraftUtilities/",
+    "license":"Apache-2.0",
+    "authors": [
+        {
+            "name": "Marc Seiler",
+            "email": "mseiler@gmail.com",
+            "homepage": "http://marcseiler.com"
+        }
+    ],
+    "support": {
+        "irc": "irc://irc.freenode.org/mcutils"
+    },
+    "require": {
+        "php": ">=5.3.0",
+        "ext-gd": "*",
+        "lib-curl":"*"
+    },
+    "autoload": {
+        "psr-0": {
+            "digitalfiz\\phpMinecraftUtilities": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
