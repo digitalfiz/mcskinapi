@@ -18,6 +18,7 @@ function getAvatar($avatar, $size) {
 
 header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + 3600));
 
+
 $split = explode("/", substr($_SERVER['REQUEST_URI'], 1));
 
 if($split[0] == 'avatar') {
