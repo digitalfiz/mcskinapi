@@ -36,11 +36,12 @@ class AvatarUtility {
             $json = json_decode($profile);
 
             $textures = static::findAvatarTextures($json);
+
             if(strlen($textures->textures->SKIN->url) > 0) {
                 $output = file_get_contents($textures->textures->SKIN->url);
             }
         }
-        
+
 
         if(strlen($output) == 0) {
             //echo "Using default!\n";
