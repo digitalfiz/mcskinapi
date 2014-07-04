@@ -6,14 +6,13 @@ include "vendor/autoload.php";
 
 function getAvatar($avatar, $size) {
     $key = $avatar.'-'.$size;
-    $memcache = new Memcached;
-    $data = $memcache->get($key);
+    $memcache = new Memcache;
+    $data = $memcache->get($key); // Why does this return 1?
     if ($data === false) {
         $data = digitalfiz\phpMinecraftUtilities\AvatarUtility::getFullAvatar($avatar, $size);
-        $memcache->set($key, base64_encode($data), 300);
-    } else {
-        $data = base64_decode($data);
+//        $memcache->set($key, $data, 300);
     }
+
     return $data;
 }
 
